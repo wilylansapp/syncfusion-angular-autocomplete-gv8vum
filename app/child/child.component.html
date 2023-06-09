@@ -1,0 +1,27 @@
+<ng-container *ngIf="dataSource" [formGroup]="form.parent">
+  <ng-container [formArrayName]="formGroupName">
+    <div
+      *ngFor="let champRecherche of form.controls; let i = index"
+      class="search-add-container"
+    >
+      <div class="btn-add-del-Search">
+        <button (click)="deleteItemSearch(i)">
+          <i class="acr-minus icon-xs"></i>
+        </button>
+        <button (click)="addItemSearch()">
+          <i class="acr-plus icon-xs"></i>
+        </button>
+      </div>
+      <ejs-autocomplete
+        #objAutocomplete
+        [class]="'search'"
+        [placeholder]="'Filtrez par département'"
+        [dataSource]="dataSource"
+        [fields]="fields"
+        [formControlName]="i"
+      >
+        ></ejs-autocomplete
+      >
+    </div>
+  </ng-container>
+</ng-container>
